@@ -35,12 +35,16 @@ SENSOR_TYPES = {
     "shunt_voltage": ["shunt_voltage", VOLT, "mdi:flash-circle"],
 }
 
-PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
-    vol.Optional(CONF_NAME, default=DEFAULT_NAME): cv.string,
-    vol.Optional(CONF_MONITORED_VARIABLES,
-        default=['bus_voltage', 'bus_current', 'power', 'shunt_voltage']):
-    vol.All(cv.ensure_list, [vol.In(SENSOR_TYPES)]),
-})
+PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
+    {
+        vol.Optional(CONF_NAME, default=DEFAULT_NAME): cv.string,
+        vol.Optional(
+            CONF_MONITORED_VARIABLES,
+            default=["bus_voltage", "bus_current", "power", "shunt_voltage"],
+        ): vol.All(cv.ensure_list, [vol.In(SENSOR_TYPES)]),
+    }
+)
+
 
 async def async_setup_platform(hass, config, async_add_entities, discovery_info=None):
     name = config.get(CONF_NAME)
@@ -53,7 +57,6 @@ async def async_setup_platform(hass, config, async_add_entities, discovery_info=
 
 
 class raspberryUpsSensor(Entity):
-
     def __init__(self, raspberryUps_data, sensor_type, name):
         """Initialize the sensor."""
         self.cname = name
@@ -90,6 +93,7 @@ class raspberryUpsSensor(Entity):
         if self.type in self.raspberryUps_data.data:
             self._state = round(self.raspberryUps_data.data[self.type], 3)
 
+
 class raspberryUpsData:
     """Get the latest data and update the state."""
 
@@ -111,4 +115,3 @@ class raspberryUpsData:
         except (DeviceRangeError, FileNotFoundError) as err:
             _LOGGER.error("Error retrieving data from raspberry UPS: %s", err)
             return False
-
