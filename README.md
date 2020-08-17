@@ -29,10 +29,7 @@ key | description | default
 :--- | :--- | :---
 **platform (Required)** | The platform name | rups
 **name (Optional)** | Let you overwrite the name of the sensor | raspberry_ups
-**monitored_variables (Optional)** | List of exposed variables | - bus_voltage
-                                                                 - bus_current
-                                                                 - power
-                                                                 - shunt_voltage
+**monitored_variables (Optional)** | List of exposed variables | - bus_voltage<br>- bus_current<br>- power<br>- shunt_voltage
 
 # Sensor
 The `rups` sensor platform allows you to get data from Raspberry PI UPS.
@@ -53,6 +50,7 @@ sensor:
     - sensor.raspberry_ups_power
     - sensor.raspberry_ups_shunt_voltage
 ```
+![screen1](/rups.png?raw=true)
 
 # Automation
 ```yaml
