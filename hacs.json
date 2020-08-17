@@ -1,0 +1,7 @@
+{
+  "name": "RUPS (Raspberry PI UPS)",
+  "domains": [
+    "sensor"
+  ],
+  "render_readme": true
+}
