@@ -13,15 +13,14 @@ You can obtain battery voltage and current information through I2C in the system
 [Official Site](https://wiki.52pi.com/index.php/UPS_%28With_RTC_%26_Coulometer%29_For_Raspberry_Pi_SKU:_EP-0118)
 
 ## Installation
+*__Manual mode__*
 
-### Install from HACS
-Go to the hacs store and use the repo url `https://github.com/zvldz/rups`
+Place the `tcp_mod` folder into your `custom_components` folder.
 
-Search the HACS Store for ```rups```
+*__Adding custom repository to [HACS](https://hacs.xyz/)__*
 
-### Install manually
-1. Clone this repo
-2. Place the `custom_components/rups` folder into your `custom_components` folder
+Go to the Integrations page in HACS and select the three dots in the top right corner. Select Custom repositories.
+Add repository url. Category - Integration. Read more on https://hacs.xyz/docs/faq/custom_repositories.
 
 ## Configuration
 
@@ -33,7 +32,7 @@ key | description | default
 **monitored_variables (Optional)** | List of exposed variables | - bus_voltage<br>- bus_current<br>- power<br>- shunt_voltage
 
 # Sensor
-The `rups` sensor platform allows you to get data from Raspberry PI UPS.
+The `rups` sensor platform allows you to get data from UPS for Raspberry PI.
 
 ```yaml
 # Example configuration.yaml entry

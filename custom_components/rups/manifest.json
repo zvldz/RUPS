@@ -2,6 +2,6 @@
   "domain": "rups",
   "name": "Raspberry PI UPS",
   "requirements": [ "pi-ina219" ],
-  "documentation": "",
+  "documentation": "https://github.com/zvldz/rups",
   "codeowners": [ "@zvldz" ]
 }
