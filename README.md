@@ -15,7 +15,7 @@ You can obtain battery voltage and current information through I2C in the system
 ## Installation
 *__Manual mode__*
 
-Place the `tcp_mod` folder into your `custom_components` folder.
+Place the `rups` folder into your `custom_components` folder.
 
 *__Adding custom repository to [HACS](https://hacs.xyz/)__*
 
