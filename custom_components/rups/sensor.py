@@ -6,10 +6,11 @@ import voluptuous as vol
 
 from homeassistant.components.sensor import PLATFORM_SCHEMA
 from homeassistant.const import (
+    ATTR_ATTRIBUTION,
     CONF_NAME,
     CONF_MONITORED_VARIABLES,
-    VOLT,
-    ELECTRICAL_CURRENT_AMPERE,
+    ELECTRIC_POTENTIAL_VOLT,
+    ELECTRIC_CURRENT_AMPERE,
     POWER_WATT,
 )
 import homeassistant.helpers.config_validation as cv
@@ -29,10 +30,10 @@ MIN_TIME_BETWEEN_UPDATES = timedelta(seconds=1)
 SHUNT_OHMS = 0.05
 
 SENSOR_TYPES = {
-    "bus_voltage": ["bus_voltage", VOLT, "mdi:flash-circle"],
-    "bus_current": ["bus_current", ELECTRICAL_CURRENT_AMPERE, "mdi:current-ac"],
+    "bus_voltage": ["bus_voltage", ELECTRIC_POTENTIAL_VOLT, "mdi:flash-circle"],
+    "bus_current": ["bus_current", ELECTRIC_CURRENT_AMPERE, "mdi:current-ac"],
     "power": ["power", POWER_WATT, "mdi:flash-outline"],
-    "shunt_voltage": ["shunt_voltage", VOLT, "mdi:flash-circle"],
+    "shunt_voltage": ["shunt_voltage", ELECTRIC_POTENTIAL_VOLT, "mdi:flash-circle"],
 }
 
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
